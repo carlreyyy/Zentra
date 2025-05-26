@@ -1,0 +1,89 @@
+@font-face {
+    font-family: "header";
+    src: url(/assets/fonts/PixelifySans-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "body";
+    src: url(/assets/fonts/TurretRoad-Regular.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(/assets/gif/background1.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    color: #ffff;
+    font-family: "body", sans-serif;
+}
+
+.container {
+    text-align: center;
+    background-color: #1d1d1d9f;
+    width: 35rem;
+    height: 55rem;
+    border-radius: 40px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 2rem;
+    border: solid 1.5px #ffff;
+}
+
+.header {
+    padding: 30px;
+}
+
+.logo {
+    width: 50%;
+    padding-bottom: .5rem;
+}
+
+.header h4 {
+    font-size: 2rem;
+}
+
+.input {
+    position: relative;
+    width: 100%;
+    align-content: center;
+}
+
+.task-input {
+    width: 20rem;
+    height: 4rem;
+    padding: 0 3rem 0 1rem;
+    background-color: transparent;
+    outline: none;
+    border: solid 2px #ffff;
+    border-radius: 35px;
+    text-align: center;
+    line-height: normal;
+    color: #fff;
+    font-family: 'body', sans-serif;
+    font-size: 1.5rem;
+}
+
+.task-input::placeholder {
+    color: #ffff;
+    font-size: 1.2rem;
+    font-family: 'body', sans-serif;
+    text-align: center;
+}
+
+.plus {
+    position: absolute;
+    right: 9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
