@@ -19,26 +19,55 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function createTask(taskText, status = "todo") {
-        const li = document.createElement("li");
+    const li = document.createElement("li");
+    li.classList.add("todo-item");
+    li.style.background = statusLayout[status].background;
 
-        li.classList.add("todo-item");
-        li.style.background = statusLayout[status].background;
+    li.innerHTML = `
+        <div class="task-content">
+            <span class="status-icon">${statusLayout[status].icon}</span>
+            <span class="task-text">${taskText}</span>
+        </div>
 
-        li.innerHTML = `
-            <div class="task-content">
-                <span class="status-icon">${statusLayout[status].icon}</span>
-                <span class="task-text">${taskText}</span>
-            </div>
-            <img src="./assets/icons/gear.png" alt="settings" class="settings-icon"">
-        `;
+         <div class="task-actions">
+            <img src="./assets/icons/gear.png" alt="settings" class="settings-icon">
+            <img src="./assets/icons/trash.png" alt="delete task" class="delete">
+        </div>
 
-        todoList.appendChild(li);
+        <div class ="status-menu hidden">
+            <button data-status="todo" class="statusSetting">${statusLayout["todo"].icon} To Do</button>
+            <button data-status="ongoing" class="statusSetting">${statusLayout["ongoing"].icon} Ongoing</button>
+            <button data-status="done" class="statusSetting">${statusLayout["done"].icon} Done</button>
+        </div>
+    `;
+
+    todoList.appendChild(li);
     }
 
-    function editTask(status) {
 
-    }
+    todoList.addEventListener("click", (e) => {
+        const li = e.target.closest("li");
 
+        if (e.target.classList.contains("settings-icon")){
+            const menu = li.querySelector(".status-menu");
+            menu.classList.toggle("hidden");
+        }
+
+        if(e.target.classList.contains("delete")){
+            if(confirm("Are you sure you want to delete this task?")){
+                li.remove();
+            }
+        }
+        
+        const button = e.target.closest(".status-menu button");
+        if(button){
+            const newStatus = button.dataset.status;
+            li.style.background = statusLayout[newStatus].background;
+            li.querySelector(".status-icon").innerHTML = statusLayout[newStatus].icon;
+            li.querySelector(".status-menu").classList.add("hidden");
+        }
+
+    });
 
     addButton.addEventListener("click", () => { 
         const task = input.value.trim();

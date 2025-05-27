@@ -26,20 +26,20 @@ body {
     background-position: center;
     height: 100vh;
     margin: 0;
-    color: #ffff;
+    color: #fff;
     font-family: "body", sans-serif;
 }
 
 .container {
     text-align: center;
     background-color: #1d1d1d9f;
-    width: 35rem;
+    width: min(35rem, 90vw);
     height: 55rem;
     border-radius: 40px;
     overflow: hidden;
     margin: 0 auto;
     margin-top: 2rem;
-    border: solid 1.5px #ffff;
+    border: solid 1.5px #fff;
 }
 
 .header {
@@ -67,7 +67,7 @@ body {
     padding: 0 3rem 0 1rem;
     background-color: transparent;
     outline: none;
-    border: solid 2px #ffff;
+    border: solid 2px #fff;
     border-radius: 35px;
     text-align: center;
     line-height: normal;
@@ -77,7 +77,7 @@ body {
 }
 
 .task-input::placeholder {
-    color: #ffff;
+    color: #fff;
     font-size: 1.2rem;
     font-family: 'body', sans-serif;
     text-align: center;
@@ -119,7 +119,7 @@ body {
 .status-icon img{
     width: 1.3rem;
     height: 1.5rem;
-    margin-top: 0.5rem;;
+    margin-top: 0.5rem;
 }
 
 .task-content{
@@ -133,4 +133,62 @@ body {
     height: 1.5rem;
     cursor: pointer;
     margin-right: 1.5rem;
+}
+
+.status-menu {
+    position: absolute;
+    background: #ffffff69;
+    border: solid 1px #0000;
+    border-radius: 5px;
+    top: 2.5rem;
+    right: 0.5rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.status-menu button {
+    padding: 0.3rem 0.8rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+
+.status-menu button:hover {
+    background-color: #ddd;
+}
+
+.hidden {
+    display: none;
+}
+
+.todo-item {
+    position: relative;
+}
+
+.statusSetting {
+    padding-top: 0.2rem;
+}
+
+.statusSetting img{
+    width: 0.9rem;
+    height: 1.2rem;
+    padding-top: 0.2rem;
+    margin-right: 0.3rem;
+}
+
+.delete {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    margin-left: 0.1rem;
+    margin-right: 1rem;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
